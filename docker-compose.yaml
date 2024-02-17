@@ -4,6 +4,7 @@ networks:
   traefik-net:
     external: true
 
+services:
   mahdibaghbani-nginx:
     image: "nginx:1.25.4"
     container_name: mahdibaghbani-nginx

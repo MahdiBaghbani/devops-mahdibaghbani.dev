@@ -6,8 +6,8 @@ set -e
 function updateGitRepository () {
   cd  "${1}"
   git fetch --all
-  git reset --hard origin/master
-  git pull origin master
+  git reset --hard origin/"${3}"
+  git pull origin "${3}"
   cd "${2}"
 }
 
@@ -32,9 +32,9 @@ cd "${DIR}" || exit
 
 git submodule update --init --recursive
 
-updateGitRepository "${DIR}" "${DIR}"
-updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev "${DIR}"
-updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev/themes/erfan "${DIR}"
+updateGitRepository "${DIR}" "${DIR}" master
+updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev "${DIR}" master
+updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev/themes/erfan "${DIR}" refactor
 
 cd ./mahdibaghbani.dev-volumes/mahdibaghbani.dev
 zola build

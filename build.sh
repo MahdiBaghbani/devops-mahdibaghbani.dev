@@ -11,6 +11,12 @@ function updateGitRepository () {
   cd "${2}"
 }
 
+# check if zola is installed.
+if ! command -v zola &> /dev/null; then
+    echo "Zola is not installed. Cannot build."
+    exit
+fi
+
 # find this scripts location.
 SOURCE=${BASH_SOURCE[0]}
 while [ -L "${SOURCE}" ]; do # resolve ${SOURCE} until the file is no longer a symlink

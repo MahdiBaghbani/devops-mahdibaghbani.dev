@@ -18,6 +18,7 @@ networks:
     volumes:
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
+      - "${PWD}/mahdibaghbani.dev-volumes/mahdibaghbani.dev/public:/public"
       - "${PWD}/mahdibaghbani.dev-volumes/nginx/templates/mahdibaghbani.dev.conf:/etc/nginx/templates/mahdibaghbani.dev.conf.template:ro"
     labels:
       - "traefik.enable=true"

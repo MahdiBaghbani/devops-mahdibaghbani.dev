@@ -5,14 +5,14 @@ set -e
 
 function updateGitRepository () {
   cd  "${1}"
-  git fetch --all
-  git reset --hard origin/"${3}"
-  git pull origin "${3}"
+  git fetch --all                   >/dev/null 2>&1
+  git reset --hard origin/"${3}"    >/dev/null 2>&1
+  git pull origin "${3}"            >/dev/null 2>&1
   cd "${2}"
 }
 
 # check if zola is installed.
-if ! command -v zola &> /dev/null; then
+if ! command -v zola >/dev/null 2>&1; then
     echo "Zola is not installed. Cannot build."
     exit
 fi
@@ -30,11 +30,16 @@ DIR=$( cd -P "$( dirname "${SOURCE}" )" >/dev/null 2>&1 && pwd )
 # go to the scripts directory.
 cd "${DIR}" || exit
 
-git submodule update --init --recursive
+docker compose down --remove-orphans >/dev/null 2>&1 || true
+
+git submodule update --init --recursive >/dev/null 2>&1
 
 updateGitRepository "${DIR}" "${DIR}" master
 updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev "${DIR}" master
 updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev/themes/erfan "${DIR}" refactor
 
 cd ./mahdibaghbani.dev-volumes/mahdibaghbani.dev
-zola build
+zola build >/dev/null 2>&1
+cd "${DIR}"
+
+docker compose up --detach >/dev/null 2>&1 || true

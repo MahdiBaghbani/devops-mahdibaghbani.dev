@@ -1,4 +1,4 @@
-[submodule "mahdibaghbani.dev-volumes/mahdibaghbani.dev"]
-	path = mahdibaghbani.dev-volumes/mahdibaghbani.dev
+[submodule "volumes/mahdibaghbani.dev"]
+	path = volumes/mahdibaghbani.dev
 	url = https://github.com/MahdiBaghbani/mahdibaghbani.dev
 	branch = master

@@ -1,4 +1,3 @@
 [submodule "volumes/mahdibaghbani.dev"]
 	path = volumes/mahdibaghbani.dev
 	url = https://github.com/MahdiBaghbani/mahdibaghbani.dev
-	branch = master

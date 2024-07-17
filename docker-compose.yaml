@@ -1,5 +1,3 @@
-version: "3"
-
 networks:
   traefik-net:
     external: true
@@ -13,14 +11,14 @@ services:
       - no-new-privileges:true
     networks:
       traefik-net:
-        ipv4_address: 172.16.2.1
+        ipv4_address: 172.16.10.1
     environment:
       SERVER_NAME: "mahdibaghbani.dev"
     volumes:
       - "/etc/timezone:/etc/timezone:ro"
       - "/etc/localtime:/etc/localtime:ro"
-      - "${PWD}/mahdibaghbani.dev-volumes/mahdibaghbani.dev/public:/public"
-      - "${PWD}/mahdibaghbani.dev-volumes/nginx/templates/mahdibaghbani.dev.conf:/etc/nginx/templates/mahdibaghbani.dev.conf.template:ro"
+      - "${PWD}/volumes/mahdibaghbani.dev/public:/public"
+      - "${PWD}/volumes/nginx/templates/mahdibaghbani.dev.conf:/etc/nginx/templates/mahdibaghbani.dev.conf.template:ro"
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-net"

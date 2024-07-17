@@ -35,10 +35,10 @@ docker compose down --remove-orphans >/dev/null 2>&1 || true
 git submodule update --init --recursive >/dev/null 2>&1
 
 updateGitRepository "${DIR}" "${DIR}" master
-updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev "${DIR}" master
-updateGitRepository ./mahdibaghbani.dev-volumes/mahdibaghbani.dev/themes/erfan "${DIR}" refactor
+updateGitRepository ./volumes/mahdibaghbani.dev "${DIR}" master
+updateGitRepository ./volumes/mahdibaghbani.dev/themes/erfan "${DIR}" refactor
 
-cd ./mahdibaghbani.dev-volumes/mahdibaghbani.dev
+cd ./volumes/mahdibaghbani.dev
 zola build >/dev/null 2>&1
 cd "${DIR}"
 

@@ -36,7 +36,7 @@ git submodule update --init --recursive >/dev/null 2>&1
 
 updateGitRepository "${DIR}" "${DIR}" master
 updateGitRepository ./volumes/mahdibaghbani.dev "${DIR}" master
-updateGitRepository ./volumes/mahdibaghbani.dev/themes/erfan "${DIR}" refactor
+updateGitRepository ./volumes/mahdibaghbani.dev/themes/tabi "${DIR}" main
 
 cd ./volumes/mahdibaghbani.dev
 zola build >/dev/null 2>&1
